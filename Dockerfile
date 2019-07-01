@@ -1,6 +1,7 @@
-FROM node:11.1.0-alpine
+FROM node:10
 
 LABEL maintainer="Luca Perret <perret.luca@gmail.com>" \
+      maintainer="Somax Ma <somaxj@163.com>" \
       org.label-schema.vendor="Strapi" \
       org.label-schema.name="Strapi Docker image" \
       org.label-schema.description="Strapi containerized" \
@@ -13,7 +14,7 @@ WORKDIR /usr/src/api
 
 RUN echo "unsafe-perm = true" >> ~/.npmrc
 
-RUN npm install -g strapi@alpha
+RUN npm install -g strapi@beta
 
 COPY strapi.sh ./
 RUN chmod +x ./strapi.sh
