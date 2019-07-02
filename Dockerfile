@@ -12,7 +12,10 @@ LABEL maintainer="Luca Perret <perret.luca@gmail.com>" \
 
 WORKDIR /usr/src/api
 
-RUN echo "unsafe-perm = true" >> ~/.npmrc
+RUN echo "unsafe-perm=true" >> ~/.npmrc
+
+RUN npm config set registry https://registry.npm.taobao.org
+RUN yarn config set registry https://registry.npm.taobao.org
 
 RUN npm install -g strapi@beta
 
